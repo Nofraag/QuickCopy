@@ -12,13 +12,15 @@
 	"icon": "assets/quickclone/icon.png",
 	"environment": "client",
 	"entrypoints": {
-		"client": ["name.Nofra.QuickClone"]
+		"client": [
+			"name.Nofra.QuickClone.QuickClone"
+		]
 	},
 	"mixins": [
 		"quickclone.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.18.5",
+		"fabricloader": ">=0.18.4",
 		"minecraft": "~1.21.11",
 		"java": ">=21",
 		"fabric-api": "*",
