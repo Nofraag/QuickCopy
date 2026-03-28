@@ -1,6 +1,6 @@
 package name.Nofra.QuickClone.events;
 
-import name.Nofra.QuickClone.Creativesmind;
+import name.Nofra.QuickClone.QuickClone;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.minecraft.client.MinecraftClient;
@@ -34,7 +34,7 @@ public class WorldGarbageDetector {
         ServerLifecycleEvents.SERVER_STOPPED.register(server -> {
             if (pendingDelete[0] == null) return;
 
-            if (Creativesmind.CONFIG.deleteSaveWhenLeaving()) {
+            if (QuickClone.CONFIG.deleteSaveWhenLeaving()) {
                 try {
                     Files.walk(pendingDelete[0])
                             .sorted(java.util.Comparator.reverseOrder())
@@ -52,7 +52,7 @@ public class WorldGarbageDetector {
                 pendingDelete[0] = null;
             }
 
-            if (Creativesmind.CONFIG.redirectToOldSave()) {
+            if (QuickClone.CONFIG.redirectToOldSave()) {
                 MinecraftClient client = MinecraftClient.getInstance();
                 String worldName = pendingSwitch[0].getFileName().toString();
                 client.execute(() -> {

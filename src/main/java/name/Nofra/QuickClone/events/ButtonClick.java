@@ -1,6 +1,6 @@
 package name.Nofra.QuickClone.events;
 
-import name.Nofra.QuickClone.Creativesmind;
+import name.Nofra.QuickClone.QuickClone;
 import name.Nofra.QuickClone.KeyMaps.KeyMapsFactory;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
@@ -44,7 +44,7 @@ public class ButtonClick {
             while (KeyMapsFactory.SWITCH_TO_CREATIVE_WORLD.wasPressed()) {
                 if (client.player == null) return;
 
-                if (Creativesmind.CONFIG.confirmationPrompt() && !confirmed) {
+                if (QuickClone.CONFIG.confirmationPrompt() && !confirmed) {
                     waitingForConfirm = true;
                     confirmed = true;
                     confirmTimer = 0;
@@ -66,7 +66,7 @@ public class ButtonClick {
                 Path newSave = worldFolder.getParent().resolve(originalName + "_creative");
 
                 if (getBondedWorld(worldFolder) != null) {
-                    client.player.sendMessage(Text.literal("Confirmation canceled, can't create BondedWorld while on a BondedWorld! if u wanna go back to ur old world just exit this world"), false);
+                    client.player.sendMessage(Text.literal("Confirmation canceled, can't create cloned while on a cloned ! if u wanna go back to ur old world just exit this world"), false);
                     return;
                 }
 
@@ -74,7 +74,7 @@ public class ButtonClick {
                     Files.walk(worldFolder).forEach(source -> {
                         if (source.getFileName().toString().equals("session.lock")) return;
 
-                        if (Creativesmind.CONFIG.brandNewWorld()) {
+                        if (QuickClone.CONFIG.brandNewWorld()) {
                             String name = source.getFileName().toString();
                             switch (name) {
                                 case "region", "entities", "poi", "data" -> {
@@ -142,11 +142,11 @@ public class ButtonClick {
             NbtCompound Data = root.getCompoundOrEmpty("Data");
             NbtCompound playerData = Data.getCompoundOrEmpty("Player");
 
-            Data.putInt("GameType", Creativesmind.CONFIG.gameMode());
+            Data.putInt("GameType", QuickClone.CONFIG.gameMode());
             Data.putInt("allowCommands", returnOpNumber());
 
             if (!playerData.isEmpty()) {
-                playerData.putInt("playerGameType", Creativesmind.CONFIG.gameMode());
+                playerData.putInt("playerGameType", QuickClone.CONFIG.gameMode());
                 Data.put("Player", playerData);
             }
 
@@ -171,7 +171,7 @@ public class ButtonClick {
     }
 
     static int returnOpNumber() {
-        return Creativesmind.CONFIG.giveOperator() ? 1 : 0;
+        return QuickClone.CONFIG.giveOperator() ? 1 : 0;
     }
 
     public static Path getBondedWorld(Path cSave) {
