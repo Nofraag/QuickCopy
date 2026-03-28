@@ -1,0 +1,23 @@
+{
+  "text.config.creativesmind-config.title": "QuickClone Config",
+
+  "text.config.creativesmind-config.section.world": "World",
+  "text.config.creativesmind-config.section.player": "Player",
+
+  "text.config.creativesmind-config.option.deleteSaveWhenLeaving": "Delete Save When Leaving",
+  "text.config.creativesmind-config.option.redirectToOldSave": "Redirect To Old Save",
+  "text.config.creativesmind-config.option.brandNewWorld": "Brand New World",
+  "text.config.creativesmind-config.option.giveOperator": "Give Operator",
+  "text.config.creativesmind-config.option.confirmationPrompt": "Confirmation Prompt",
+  "text.config.creativesmind-config.option.gameMode": "Game Mode",
+
+  "text.config.creativesmind-config.option.deleteSaveWhenLeaving.tooltip": "When enabled, the cloned save will be deleted when you leave the world",
+  "text.config.creativesmind-config.option.redirectToOldSave.tooltip": "When enabled, you will be redirected back to your old world when leaving the cloned world",
+  "text.config.creativesmind-config.option.brandNewWorld.tooltip": "When enabled, the cloned world will be a fresh new world instead of a copy",
+  "text.config.creativesmind-config.option.giveOperator.tooltip": "Gives operator permissions in the cloned world",
+  "text.config.creativesmind-config.option.confirmationPrompt.tooltip": "Requires a second key press to confirm switching worlds",
+  "text.config.creativesmind-config.option.gameMode.tooltip": "The gamemode to use. 0=Survival 1=Creative 2=Adventure 3=Spectator",
+
+  "key.category.creativesmind.custom_category": "QuickClone",
+  "key.creativesmind.switch": "Switch to cloned World"
+}

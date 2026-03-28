@@ -1,0 +1,14 @@
+{
+	"required": true,
+	"package": "name.Nofra.QuickClone.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+      "creativesmind.Cosmotiz.mixin.ExampleMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}
